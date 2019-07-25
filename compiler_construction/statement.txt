@@ -1,0 +1,2 @@
+for i := 1 to ListBox1.Items.Count - 1 do
+S := S - ListBox1.Items[i];

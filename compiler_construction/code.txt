@@ -1,0 +1,14 @@
+ procedure TForm1.Button2Click(Sender: TObject);
+ var M:set of char;ch:char;S:string;i,k:integer;
+ begin
+	M:=[];k:=0;
+	for i:=i to ListBox1.Items.Count-1 do 
+		S:=S+ListBox1.Items[i];   
+		begin  
+		for i:=1 to Length(S) do    
+			if S[i] in M then   
+				M:=M+[S[i]]                 
+			else  if M>5 then
+				 ShowMessage('Impossible') 
+		end;
+end;

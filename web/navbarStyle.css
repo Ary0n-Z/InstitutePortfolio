@@ -1,0 +1,120 @@
+﻿/*Float navigation*/
+
+.nav-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 30;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #333;
+}
+.nav-btn:hover .nav-btn-lines{
+    filter: brightness(0.5);
+}
+.nav-btn-lines,
+.nav-btn-lines::after,
+.nav-btn-lines::before{
+    position:absolute;
+    width:40px;
+    height:6px;
+    background-color:#fff;
+}
+/*3 white lines*/
+.nav-btn-lines{
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.nav-btn-lines::before{
+    top:-15px;
+    content:'';
+}
+.nav-btn-lines::after {
+    top:15px;
+    content: '';
+}
+/*When active, transform lines into the cross*/
+.nav-float-menu-active .nav-btn-lines {
+    background-color: transparent;
+}
+.nav-float-menu-active .nav-btn-lines::before {
+    top: 0px;
+    transform: rotate(45deg);
+}
+.nav-float-menu-active .nav-btn-lines::after {
+    top: 0px;
+    transform: rotate(-45deg);
+}
+/*nav menu style*/
+.nav-list{
+    padding-top:80px;
+    position:fixed;
+    z-index:20;
+    display:flex;
+    flex-flow:column;
+    height:100%;
+    background-color:#2a2a2a;
+    left:-100%;
+}
+
+.nav-float-menu-active .nav-list {
+    left: 0;
+}
+
+.nav-list-link{
+    padding:30px;
+    font-size:26px;
+    text-decoration:none;
+    letter-spacing:5px;
+    font-weight:bold;
+    color:#fff;
+}
+
+.nav-list-link:hover{
+    filter:brightness(0.5);
+}
+/*Overlay styles*/
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vw;
+}
+
+.nav-float-menu-active .nav-overlay {
+    display: block;
+}
+
+/*Navigation bar*/
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+    top: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #d9534f;
+    cursor:default;
+}

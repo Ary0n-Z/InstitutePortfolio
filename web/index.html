@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Music distribuion-->
+    <title>
+        DMC
+    </title>
+    <!--Links-->
+    <link rel="stylesheet" type="text/css" href="pageStyle.css" />
+    <link rel="stylesheet" type="text/css" href="navbarStyle.css" />
+    <link rel="stylesheet" type="text/css" href="formStyle.css" />
+    <link rel="stylesheet" type="text/css" href="clock.css" />
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <!--Scripts-->
+    <script src="script.js"></script>
+    <script src="form.js"></script>
+    <script src="calculatorScript.js"></script>
+    <!--Accordion-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        //accordion init with option that makes height adaptive to a content
+        $(function () {
+            $("#accordion").accordion({ heightStyle: "content" });
+        });
+    </script>
+    <!--LightBox-->
+    <link rel="stylesheet" href="lightbox.min.css">
+    <!--Internal styles-->
+    <style>
+
+        /* Default styles: mobile phones expected. To improve performance during the page interprint: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        .nav-bar-menu {
+            display: none;
+        }
+
+        svg {
+            display: none;
+        }
+
+        @media only screen and (min-width: 768px) {
+            /* Desktop styles */
+            svg {
+                display: inline-block;
+            }
+
+            .nav-bar-menu {
+                display: block;
+            }
+
+            .nav-float-menu {
+                display: none;
+            }
+
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+            border: 1px solid #222222;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .footer {
+            height: 50px;
+            background: #222222;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Main container-->
+    <div class="main-container" style="display:flex; flex-direction:column; justify-content:space-between; height:100vh">
+        <div>
+            <!--Header-->
+            <div class="header-container row">
+                <header class="col-12"
+                        style="padding-top:0;padding-left:0;padding-right:0;">
+                    <h1>Navigation</h1>
+                    <!--Float navigation menu-->
+                    <div class="nav-float-menu">
+                        <a class="nav-btn">
+                            <span class="nav-btn-lines"></span>
+                        </a>
+                        <nav class="nav-list">
+                            <h2>Nav float menu</h2>
+                            <a href="#home" class="nav-list-link active">Home</a>
+                            <a href="#news" class="nav-list-link">News</a>
+                            <a href="#contacts" class="nav-list-link">Contacts</a>
+                            <a href="#about" class="nav-list-link">About</a>
+                        </nav>
+                        <div class="nav-overlay"></div>
+                    </div>
+                    <!--Logo and clocks-->
+                    <div class="img-logo">
+                        <img style="width:70%; height:auto;"
+                             src="logo.png" alt="DMC" />
+                        <!--Clocks-->
+                        <svg viewBox="0 0 50 50">
+                            <circle cx="25" cy="25" r="20"></circle>
+                            <!--Group time marks-->
+                            <g class="marks">
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                                <line x1="15" y1="0" x2="16" y2="0"></line>
+                            </g>
+                            <!--Time arrows-->
+                            <line x1="0" y1="0" x2="10" y2="0" class="hour" />
+                            <line x1="0" y1="0" x2="15" y2="0" class="minute" />
+                            <line x1="0" y1="0" x2="18" y2="0" class="seconds" />
+                            <circle cx="25" cy="25" r="0.7" class="pin" />
+                        </svg>
+                    </div>
+
+                    <!--Navigation bar-->
+                    <nav class="nav-bar-menu">
+                        <h2>Nav bar menu</h2>
+                        <ul>
+                            <li><a class="active" href="#home">Home</a></li>
+                            <li><a href="#news">News</a></li>
+                            <li><a href="#contacts">Contacts</a></li>
+                            <li><a href="#about">About</a></li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+
+            <!--Main content-->
+            <div class="main-content row ">
+                <h1>MainContent</h1>
+                <div class="row">
+                    <h2>Content</h2>
+                    <!--Column 1-->
+                    <section class="col-10" id="accordion">
+                        <h3>Table</h3>
+                        <!--Table-->
+                        <div class="row">
+                            <article class="col-12">
+                                <h4>Information table</h4>
+                                <table class="table_ticket_prices">
+                                    <colgroup>
+                                        <col span="2" style="background-color:#222222">
+                                        <col style="background-color:#d9534f">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th><p><strong>Group</strong></p></th>
+                                            <th><p><strong>Date</strong></p></th>
+                                            <th><p><strong>Cost</strong></p></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><p>"JBRock"</p></td>
+                                            <td><p>26.11.2019</p></td>
+                                            <td><p>$800</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p>"Call me Qween"</p></td>
+                                            <td><p>12.12.2019</p></td>
+                                            <td><p>$80</p></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3" style="text-align:center"><p>comming soon..</p></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </article>
+                        </div>
+                        <h3>Form</h3>
+                        <!--Form-->
+                        <div class="row">
+                            <article class="col-12 form-box">
+                                <h4>Gift form</h4>
+                                <form class="requaire-form" action="javascript:void(0);">
+                                    <fieldset>
+                                        <legend style="font-size:24px;"><strong>Enter secret message to get a gift-ticket</strong></legend>
+                                        <!--Name-->
+                                        <div class="row">
+                                            <div class="col-3 form-label">
+                                                <label for="fname">First Name</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text"
+                                                       class="rfield"
+                                                       pattern="[A-Za-z]+"
+                                                       id="fname"
+                                                       placeholder="Your name.."
+                                                       title="Only letters are allowed">
+                                            </div>
+                                        </div>
+                                        <!--LName-->
+                                        <div class="row">
+                                            <div class="col-3 form-label">
+                                                <label for="lname">Last Name</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text"
+                                                       pattern="[A-Za-z]+"
+                                                       id="lname"
+                                                       placeholder="Your last name.."
+                                                       title="Only letters are allowed">
+                                            </div>
+                                        </div>
+                                        <!--Email-->
+                                        <div class="row">
+                                            <div class="col-3 form-label">
+                                                <label for="email">Email</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <!--WORD{.WORD}@WORD.min2Letters-->
+                                                <input type="text"
+                                                       class="rfield"
+                                                       pattern="[A-Za-z0-9_]+(.?[A-Za-z0-9_])*@[A-Za-z0-9_]+[.][A-Za-z0-9]{2,}"
+                                                       id="email"
+                                                       placeholder="Your email.."
+                                                       title="{word{.word}@word.min2leters}">
+                                            </div>
+                                        </div>
+                                        <!--Secret-->
+                                        <div class="row">
+                                            <div class="col-3 form-label">
+                                                <label for="secret">Secret</label>
+                                            </div>
+                                            <div class="popup-container col-9">
+                                                <input type="password"
+                                                       class="rfield"
+                                                       id="secret"
+                                                       placeholder="Your secret.."
+                                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_]).{8,}">
+                                            </div>
+                                        </div>
+                                        <!--Message-->
+                                        <div class="row">
+                                            <div class="col-3 form-label">
+                                                <label for="subject">Message</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <textarea id="subject" placeholder="Write comments.." style="height:100px"></textarea>
+                                            </div>
+                                        </div>
+                                        <!--Confirm-->
+                                        <div class="row">
+                                            <div class="col-3 form-label">
+                                                <label for="agree">Confirm</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="checkbox" class="rfield" id="agree" required onclick="confrmcb(this.checked)">
+                                            </div>
+                                        </div>
+                                        <!--Submit btn-->
+                                        <div class="row">
+                                            <input type="submit" class="btn-submit btn-disabled" value="Submit" onclick="validateSecret()">
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </article>
+                        </div>
+                        <h3>Calculator</h3>
+                        <!--Calculator-->
+                        <div class="row">
+                            <article class="col-12">
+                                <h4>Calculator</h4>
+                                <form id="calculator">
+                                    <table>
+                                        <tr>
+                                            <td colspan="4">
+                                                <input type="text" id="display">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="button" id="one" value="1" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="two" value="2" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="three" value="3" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="plus" value="+" onclick="calculatorBtnPress(value)"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="button" id="four" value="4" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="five" value="5" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="six" value="6" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="minus" value="-" onclick="calculatorBtnPress(value)"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="button" id="seven" value="7" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="eight" value="8" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="nine" value="9" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="times" value="*" onclick="calculatorBtnPress(value)"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="button" id="clear" value="c" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="zero" value="0" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="calc" value="=" onclick="calculatorBtnPress(value)"></td>
+                                            <td><input type="button" id="div" value="/" onclick="calculatorBtnPress(value)"></td>
+
+                                        </tr>
+                                    </table>
+                                </form>
+                            </article>
+                        </div>
+                    </section>
+                    <!--Column 2-->
+                    <section class="col-2">
+                        <div class="row">
+                            <h2>Aside</h2>
+                            <aside>
+                                <h3>Gallery</h3>
+                                <a href="gallery/img1.jpg" data-lightbox="img-1">
+                                    <img class="img-aside" src="gallery/thmb1.jpg" alt="Cool picture" style="width:100%" />
+                                </a>
+                                <a href="gallery/img2.png" data-lightbox="img-1">
+                                    <img class="img-aside" src="gallery/thmb2.png" alt="Cool 2nd picture" style="width:100%" />
+                                </a>
+                            </aside>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <div class="footer-container row">
+            <footer class="footer">
+                <h1>Footer</h1>
+                <div style="color:azure;">Aleksejs Anufrijevs 4502BD</div>
+            </footer>
+        </div>
+        <!--After page load scripts-->
+        <script>
+            //Call init state of the floating navigation
+            navFloatMenu();
+        </script>
+    </div>
+    <!--Lightbox include => init-->
+    <script src="lightbox.js"></script>
+</body>
+</html>

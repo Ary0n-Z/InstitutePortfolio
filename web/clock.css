@@ -1,0 +1,136 @@
+﻿svg {
+    width: 200px;
+    fill: white;
+    stroke: black;
+    stroke-width: 1;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    /*css variables which represents current time*/
+    --start-seconds: 1;
+    --start-minutes: 1;
+    --start-hours: 1;
+}
+
+.marks{
+    transform: translate(25px,25px);
+    /*all mark thickness*/
+    stroke-width: 0.2;
+}
+/*12 marks which represent numbers in the clocks*/
+/*Becouse circle angle = 360 and we have 12 time marks*/
+/*Call rotation on 360/12=30deg each next mark*/
+/*and calc() func to execute expression*/
+.marks line:nth-child(1) {
+    transform: rotate(30deg);
+}
+.marks line:nth-child(2) {
+    transform: rotate(calc(2 * 30deg));
+}
+
+.marks line:nth-child(3) {
+    transform: rotate(calc(3 * 30deg));
+    /*but marks on 3,6,9 and 12 o'clock will be thicker*/
+    stroke-width: 0.5;
+}
+
+.marks line:nth-child(4) {
+    transform: rotate(calc(4 * 30deg));
+}
+
+.marks line:nth-child(5) {
+    transform: rotate(calc(5 * 30deg));
+}
+
+.marks line:nth-child(6) {
+    transform: rotate(calc(6 * 30deg));
+    stroke-width: 0.5;
+}
+
+.marks line:nth-child(7) {
+    transform: rotate(calc(7 * 30deg));
+}
+
+.marks line:nth-child(8) {
+    transform: rotate(calc(8 * 30deg));
+}
+
+.marks line:nth-child(9) {
+    transform: rotate(calc(9 * 30deg));
+    stroke-width: 0.5;
+}
+
+.marks line:nth-child(10) {
+    transform: rotate(calc(10 * 30deg));
+}
+
+.marks line:nth-child(11) {
+    transform: rotate(calc(11 * 30deg));
+}
+
+.marks line:nth-child(12) {
+    transform: rotate(calc(12 * 30deg));
+    stroke-width: 0.5;
+}
+/*move time arrows to the circle center*/
+.seconds,.minute,.hour{
+    transform: translate(25px,25px) rotate(0deg);
+}
+/*Time movement logic, using animation and css func var() and calc()*/
+/*Circle has 360deg angle and seconds have 60 divisions => 360/60=6deg each second*/
+.seconds {
+    stroke-width: 0.3;
+    stroke: #d00505;
+    /*move to center and rotate on angle*/
+    transform:translate(25px,25px) rotate(calc(var(--start-seconds)*6deg));
+    /*call animation every second, func steps() helps us to devide all animation on 60 frames*/
+    /*infinity iteratin count*/
+    animation: rotateSeconds 60s steps(60) infinite;
+}
+
+.minute {
+    stroke-width: 0.6;
+    transform: translate(25px,25px) rotate(calc(var(--start-minutes)*6deg));
+    animation: rotateMinute 3600s steps(60) infinite;
+    /*Here we need negative delay. We need to force animation forward depending on seconds left to the noon*/
+    animation-delay: calc(var(--start-seconds)*-1*1s);
+}
+/*Hours has 12 marks => 360/12 = 60deg; */
+.hour {
+    stroke-width: 1;
+    transform: translate(25px,25px) rotate(calc(var(--start-hours) *6deg));
+    animation: rotateHour calc(12 * 60 * 60s) linear infinite;
+    /*Same story*/
+    animation-delay: calc(calc(var(--start-minutes) * -60 * 1s) + calc(var(--start-seconds) * -1 * 1s));
+}
+
+.pin {
+    stroke: #d00505;
+    stroke-width: 0.2;
+}
+/*Animation represents full turnover*/
+@keyframes rotateSeconds{
+    from{
+        transform:translate(25px, 25px) rotate(calc(var(--start-seconds)*6deg));
+    }
+    to {
+        transform: translate(25px, 25px) rotate(calc(var(--start-seconds)*6deg + 360deg));
+    }
+}
+
+@keyframes rotateMinute{
+    from {
+        transform: translate(25px, 25px) rotate(calc(var(--start-minutes) * 6deg));
+    }
+    to {
+        transform: translate(25px, 25px) rotate(calc(var(--start-minutes)*6deg + 360deg));
+    }
+}
+@keyframes rotateHour {
+    from {
+        transform: translate(25px, 25px) rotate(calc(var(--start-hours) * 30deg));
+    }
+
+    to {
+        transform: translate(25px, 25px) rotate(calc(var(--start-hours)*30deg + 360deg));
+    }
+}

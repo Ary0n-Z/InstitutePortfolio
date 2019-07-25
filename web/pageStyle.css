@@ -1,0 +1,32 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1,h2 {
+    display: none;
+}
+p {
+    color: azure;
+    padding: 10px;
+}
+h3 {
+    background: #d9534f;
+    color: azure;
+    border:solid;
+    border-width: 2px;
+    border-color: #333333;
+}
+strong {
+    border: solid;
+    border-color: azure;
+    border-width: 1px;
+    padding: 5px;
+}
+
+img-logo{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
