@@ -1,9 +1,9 @@
-#Information
+# Information
 
 This is training task that contains implementation of lexicon scanner and parser for a part of PASCAL programming language. Scanner scan code.txt and generates lexems and constants tables, according to an existing lexicon.
 
-#Grammar rules
-##for Scanner
+# Grammar rules
+## for Scanner
 ```
 <identifier> :: = letter | <identifier>letter | <identifier>digit
 <integer> ::= digit | <integer>digit
@@ -17,7 +17,7 @@ u | v | w | x | y | z
 <delimiter2> ::= <colon>=
 <colon> ::= :
 ```
-##for Parser
+## for Parser
 ```
 <statement>::=<for statement> | <assignment>
 <for statement>::=for <var> [:=<exp>]  to <exp> do <statement>
