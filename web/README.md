@@ -1,8 +1,8 @@
-#Web page
-##Languages:
+# Web page
+## Languages:
 - html
 - css
 - javascript
-##Libraries:
+## Libraries:
 - jquery
 - lightbox

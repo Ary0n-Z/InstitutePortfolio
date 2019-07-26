@@ -1,8 +1,8 @@
-#Task
+# Task
 It is necessary to implement the Least-squares polynomial approximation and
 Bessel polynomials approximation.
 
-##Implementation
+## Implementation
 **Language** : с++ using * *opengl* * and * *glut* * libs for visualisation
 **Files description** :
  - 1.csv - contains target points
